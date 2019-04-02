@@ -36,7 +36,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
 
     @IBAction func zoomButtonTapped(_ sender: UIBarButtonItem) {
-        
+        let coordinateSpan = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let center = currentLocation.coordinate
+        let region = MKCoordinateRegion(center: center, span: coordinateSpan)
+        mapView.setRegion(region, animated: true)
     }
     
     @IBAction func searchButtonTapped(_ sender: UIBarButtonItem) {
